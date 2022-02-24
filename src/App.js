@@ -9,6 +9,7 @@ import { AuthContext } from "./Context/AuthContext";
 import RandomPage from "./Pages/RandomPage/RandomPage";
 import Error404 from "./Pages/Errors/Error404";
 import Layout from "./Components/Layout/Layout";
+import LayoutTest from "./Pages/Test/LayoutTest";
 
 
 if (localStorage.limadi_token) {
@@ -40,6 +41,9 @@ function App(props) {
         <Route exact path='/random-page' element={<ProtectedRoute/>}>
             <Route exact path='/random-page' element={<RandomPage/>}/>
         </Route>
+        
+        {/* Testing Only */}
+        <Route path="/layout-test" element={<LayoutTest/>} />
       </Routes>
     </div>
   );

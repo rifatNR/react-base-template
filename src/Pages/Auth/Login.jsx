@@ -1,10 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
+import LogoLoading from '../../Utility/LogoLoading';
 
-const Login = () => {
+const Login = (props) => {
 
-  const {Login} = useContext(AuthContext)
+  const {isAuth, auth_loading, loading, Login, active_route} = useContext(AuthContext)
+  const [showFlash, setShowFlash] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setShowFlash(false), 1000);
+  }, [])
     
   const [user_data, setUserData] = useState({
       "email": '',
@@ -18,6 +24,11 @@ const Login = () => {
       console.log(user_data);
       Login(user_data)
   }
+
+  
+  if(loading || showFlash) return <LogoLoading/>
+
+  if (isAuth) return <Navigate to="/" />;
   
   return (
     <div className="flex items-center justify-center h-screen">
@@ -35,7 +46,7 @@ const Login = () => {
                   </div>
 
                   <button type="submit" className="w-48 px-4 py-2 my-5 mx-auto rounded-md font-bold text-xl text-white bg-limadi flex justify-center">
-                      {/* {login_loading && <ImSpinner2 className="animate-spin duration-150 mr-2 font-bold text-2xl" />} */}
+                      {/* {auth_loading && <ImSpinner2 className="animate-spin duration-150 mr-2 font-bold text-2xl" />} */}
                       Sign In
                   </button>
 

@@ -1,23 +1,24 @@
 export const authReducer = (state, action) => {
     switch (action.type) {
-      case "SET_LOADING":
+      case "USER_LOADING":
         return {
           ...state,
           loading: action.payload,
         };
-      case "LOGIN_LOADING":
+      case "AUTH_LOADING":
         return {
           ...state,
-          login_loading: action.payload
+          auth_loading: action.payload
         };
-    //   case "LOAD_USER":
-    //     return {
-    //       ...state,
-    //       isAuth: true,
-    //       user: action.payload,
-    //       loading: false,
-    //     };
+      case "LOAD_USER":
+        return {
+          ...state,
+          isAuth: true,
+          user: action.payload,
+          loading: false,
+        };
       case "LOGIN_SUCCESS":
+      case "REGISTER_SUCCESS":
         localStorage.setItem("limadi_token", action.payload.data.token);
         return {
           ...state,

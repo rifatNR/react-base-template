@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navigate, Outlet, Route } from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext';
 import LogoLoading from './LogoLoading';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-    let isAuth = false; // TODO: DELETE
-    let loading = false; // TODO: DELETE
+    const { isAuth, loading } = useContext(AuthContext);
 
-    return isAuth ? <Outlet /> : <Navigate to="/login" />;
+    return !isAuth ? (!loading ? <Navigate to="/login" /> : <LogoLoading/>) : <Outlet />;
 }
 
 export default ProtectedRoute

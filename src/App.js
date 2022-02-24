@@ -8,6 +8,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import RandomPage from "./Pages/RandomPage/RandomPage";
 import Error404 from "./Pages/Errors/Error404";
+import Layout from "./Components/Layout/Layout";
 
 
 if (localStorage.limadi_token) {
@@ -17,7 +18,7 @@ if (localStorage.limadi_token) {
 }
 
 
-function App() {
+function App(props) {
   const { isAuth, LoadUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function App() {
         <Route path="/register" element={<Register/>} />
 
         <Route exact path='/' element={<ProtectedRoute/>}>
-            <Route exact path='/' element={<Home/>}/>
+            <Route exact path='/' element={<Layout {...props}><Home/></Layout>}/>
         </Route>
         <Route exact path='/random-page' element={<ProtectedRoute/>}>
             <Route exact path='/random-page' element={<RandomPage/>}/>

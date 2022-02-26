@@ -11,7 +11,7 @@ const Accordion = () => {
     const [isOpen, setIsOpen] = useState(false)
     
     return (
-        <div onClick={() => setIsOpen(!isOpen)} className='text-md px-7 py-2 mb-4 text-gray-800 cursor-pointer'>
+        <div onClick={() => setIsOpen(!isOpen)} className={`text-md px-7 py-2 mb-4 text-gray-800 cursor-pointer ${isOpen && 'text-limadi'}`}>
             <div className='flex justify-between items-center w-full'>
                 <div className='flex items-center text-sm font-semibold'>
                     <FaRegEdit className='text-lg mr-2'/> Request

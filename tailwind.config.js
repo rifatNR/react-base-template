@@ -3,7 +3,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+          height: 'height',
+          maxHeight: 'max-height'
+      }
+    },
   },
   plugins: [],
 }

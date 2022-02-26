@@ -11,6 +11,7 @@ import { BiPlusCircle } from 'react-icons/bi';
 
 // Images & Icons
 import logo from "../../Images/logo_with_slogan.png"
+import Accordion from './Accordion';
 
 const Sidebar = () => {
 
@@ -38,33 +39,19 @@ const Sidebar = () => {
                 </div>
             </div>
 
+
             <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'home' && 'bg-gray-100 text-limadi'}`}>
                 <MdHomeFilled className='text-xl mr-2'/> Home
             </div>
 
-            <div className='text-md px-7 pb-4 text-gray-800 cursor-pointer'>
-                <div className='flex justify-between items-center w-full'>
-                    <div className='flex items-center text-sm font-semibold'>
-                        <FaRegEdit className='text-lg mr-2'/> Request
-                    </div>
-                    <IoIosArrowForward />
-                </div>
-                <div className='pt-3'>
-                    <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi`}>
-                        <AiFillSave className='text-lg mr-2'/> Saved
-                    </div>
-                    <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi`}>
-                        <MdOutlineGavel className='text-lg mr-2'/> In Bidding
-                    </div>
-                    <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi`}>
-                        <RiMedalLine className='text-lg mr-2'/> Awarded
-                    </div>
-                </div>
-            </div>
+            <Accordion/>
             
-            <div className="flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi">
+            <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi`}>
                 <BiPlusCircle className='text-xl mr-2'/> Create Request
             </div>
+            
+            <Accordion/>
+
         </div>
         </aside>
     )

@@ -10,6 +10,7 @@ import RandomPage from "./Pages/RandomPage/RandomPage";
 import Error404 from "./Pages/Errors/Error404";
 import Layout from "./Components/Layout/Layout";
 import LayoutTest from "./Pages/Test/LayoutTest";
+import LayoutTest02 from "./Pages/Test/LayoutTest02";
 
 
 if (localStorage.limadi_token) {
@@ -38,12 +39,16 @@ function App(props) {
         <Route exact path='/' element={<ProtectedRoute/>}>
             <Route exact path='/' element={<Layout {...props}><Home/></Layout>}/>
         </Route>
+        
+        
+        {/********************** Testing Only ***********************/}
         <Route exact path='/random-page' element={<ProtectedRoute/>}>
             <Route exact path='/random-page' element={<RandomPage/>}/>
         </Route>
-        
-        {/* Testing Only */}
-        <Route path="/layout-test" element={<LayoutTest/>} />
+        <Route path="/layout-test-1" element={<LayoutTest/>} />
+        <Route path="/layout-test-2" element={<LayoutTest02/>} />
+        {/********************** Testing Only ***********************/}
+
       </Routes>
     </div>
   );

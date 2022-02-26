@@ -2,9 +2,15 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className="bg-green-400 h-12">
-        Header
-    </div>
+    <header className="header bg-white shadow py-4 px-4">
+        <div className="header-content flex items-center flex-row">
+            <div className="flex ml-auto">
+                <a href className="flex flex-row items-center">
+                <img src="https://pbs.twimg.com/profile_images/378800000298815220/b567757616f720812125bfbac395ff54_normal.png" alt="Not Found" className="h-10 w-10 bg-gray-200 border rounded-full"/>
+                </a>
+            </div>
+        </div>
+    </header>
   )
 }
 

@@ -10,6 +10,8 @@ const RandomPage = () => {
               <li className="text-xl font-bold flex justify-center hover:text-limadi"><Link to="/">Home</Link></li>
               <li className="text-xl font-bold flex justify-center hover:text-limadi"><Link to="/about-us">About Us</Link></li>
               <li className="text-xl font-bold flex justify-center hover:text-limadi"><Link to="/contact">Contact</Link></li>
+              <li className="text-xl font-bold flex justify-center hover:text-limadi"><Link to="/layout-test-1">Test Layout 01</Link></li>
+              <li className="text-xl font-bold flex justify-center hover:text-limadi"><Link to="/layout-test-2">Test Layout 02</Link></li>
           </ul>
         </div>
     </div>

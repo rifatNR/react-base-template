@@ -33,7 +33,13 @@ function App(props) {
   return (
     <div className="App">
       <Routes>
-        <Route path='*' element={<Error404/>} />
+
+        {/* ========================== 404 Error =========================== */}
+        {/* <Route path='*' element={<Error404/>} /> */}
+        <Route exact path='/*' element={<ProtectedRoute/>}>
+          <Route path='*' element={<Layout {...props}><Error404/></Layout>} />
+        </Route>
+        {/* ========================== 404 Error =========================== */}
 
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />

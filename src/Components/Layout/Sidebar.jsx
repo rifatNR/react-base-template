@@ -25,7 +25,7 @@ const Sidebar = () => {
     let active_section = ""
     let active_sub_section = ""
     
-    if(active_route.includes('home')) active_section = 'home'
+    if(active_route.includes('/')) active_section = 'home'
     if(active_route.includes('create-request')) active_section = 'create_request'
     
     // Sub Sections
@@ -35,14 +35,18 @@ const Sidebar = () => {
     if(active_route.includes('request/ongoing')) active_sub_section = 'ongoing'
     if(active_route.includes('request/completed')) active_sub_section = 'completed'
     if(active_route.includes('request/history')) active_sub_section = 'history'
-
     if(['saved', 'in_bidding', 'awarded', 'ongoing', 'completed', 'history'].includes(active_sub_section)) active_section = 'request'
+    
+    if(active_route.includes('pirate')) active_sub_section = 'pirate'
+    if(active_route.includes('ninja')) active_sub_section = 'ninja'
+    if(['pirate', 'ninja'].includes(active_sub_section)) active_section = 'hello_world'
+
     // !===============================================================================================
     
     return (
         <aside className={`${isSidebarOpen ? 'w-64' : 'w-0'} sidebar overflow-hidden md:shadow transform -translate-x-full md:translate-x-0 transition-all duration-150 ease-in bg-white`}>
             <div className="sidebar-header flex items-center justify-center py-4">
-                <Link to="/home" className="inline-flex flex-row items-center">
+                <Link to="/" className="inline-flex flex-row items-center">
                     <div className="h-10">
                         <img src={logo} alt="" className='w-36'/>
                     </div>
@@ -57,9 +61,9 @@ const Sidebar = () => {
                 </div>
 
 
-                <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'home' && 'bg-gray-100 text-limadi'}`}>
+                <Link to="/" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'home' && 'bg-gray-100 text-limadi'}`}>
                     <MdHomeFilled className='text-xl mr-2'/> Home
-                </div>
+                </Link>
 
                 <Accordion
                     isInitOpen={active_section === 'request'}
@@ -87,20 +91,21 @@ const Sidebar = () => {
                     </>}
                 />
                 
-                <div className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi`}>
+                <Link to="/create-request" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'create_request' && 'bg-gray-100 text-limadi'}`}>
                     <BiPlusCircle className='text-xl mr-2'/> Create Request
-                </div>
+                </Link>
                 
 
                 {/* Random Accordion Example */}
                 <Accordion
+                    isInitOpen={active_section === 'hello_world'}
                     icon={<BiWorld className='text-lg mr-2'/>}
                     title={"Hello World"}
                     body={<>
-                        <Link to="/request/saved" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi`}>
+                        <Link to="/pirate" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'pirate' && 'bg-gray-100 text-limadi'}`}>
                             <GiPirateFlag className='text-lg mr-2'/> Pirate
                         </Link>
-                        <Link to="/request/in-bidding" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi`}>
+                        <Link to="/ninja" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'ninja' && 'bg-gray-100 text-limadi'}`}>
                             <GiNinjaStar className='text-lg mr-2'/> Ninja
                         </Link>
                     </>}

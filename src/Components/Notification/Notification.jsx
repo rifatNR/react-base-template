@@ -10,7 +10,7 @@ const Notification = () => {
         <div className="p-3">
             <div className="flex justify-between items-center mb-5">
                 <div className="font-bold text-md">Notification</div>
-                <div className="text-limadi text-sm">See all</div>
+                <div className="text-limadi hover:underline cursor-pointer text-sm">See all</div>
             </div>
 
             <div className="bg-gray-100 p-3 rounded-md">

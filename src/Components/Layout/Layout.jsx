@@ -8,7 +8,9 @@ const Layout = (props) => {
         <Sidebar/>
         <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
             <Header/>
-            {props.children}
+            <div className="container mx-auto">
+              {props.children}
+            </div>
         </main>
     </div>
   )

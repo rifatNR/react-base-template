@@ -3,7 +3,7 @@ import { BsSearch } from 'react-icons/bs'
 
 const Search = ({search}) => {
   return (
-    <div className="relative mx-auto text-gray-600">
+    <div className="relative text-gray-600">
         <span className="flex item-center z-10 h-full leading-snug font-normal text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
             <BsSearch className="text-gray-500"/>
         </span>

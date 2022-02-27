@@ -10,7 +10,7 @@ const LayoutTest = () => {
             {/* Brand */}
             <div className="sidebar-header flex items-center justify-center py-4">
                 <div className="inline-flex">
-                <a href="javascript/;" className="inline-flex flex-row items-center">
+                <a href="/" className="inline-flex flex-row items-center">
                     <svg className="w-10 h-10 text-red-400" fill="currentColor" viewBox="0 0 20 20">
                     <path
                         fill-rule="evenodd"
@@ -27,7 +27,7 @@ const LayoutTest = () => {
             <div className="sidebar-content px-4 py-6">
                 <ul className="flex flex-col w-full">
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700 bg-gray-100">
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700 bg-gray-100">
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -50,7 +50,7 @@ const LayoutTest = () => {
                     <span className="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Projects</span>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -70,7 +70,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -90,7 +90,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -113,7 +113,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-green-400">
                         <svg
                         fill="none"
@@ -134,7 +134,7 @@ const LayoutTest = () => {
                     <span className="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Account</span>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -152,7 +152,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -175,7 +175,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-gray-400">
                         <svg
                         fill="none"
@@ -196,7 +196,7 @@ const LayoutTest = () => {
                     </a>
                 </li>
                 <li className="my-px">
-                    <a href="javascript/;" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
+                    <a href="/" className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" >
                     <span className="flex items-center justify-center text-lg text-red-400">
                         <svg
                         fill="none"
@@ -253,7 +253,7 @@ const LayoutTest = () => {
                         />
                         </div>
                         <div className="flex md:hidden">
-                        <a href="javascript/;" className="flex items-center justify-center h-10 w-10 border-transparent">
+                        <a href="/" className="flex items-center justify-center h-10 w-10 border-transparent">
                             <svg
                             className="h-6 w-6 text-gray-500"
                             fill="none"

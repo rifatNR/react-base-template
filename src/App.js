@@ -11,6 +11,8 @@ import Error404 from "./Pages/Errors/Error404";
 import Layout from "./Components/Layout/Layout";
 import LayoutTest from "./Pages/Test/LayoutTest";
 import LayoutTest02 from "./Pages/Test/LayoutTest02";
+import InBidding from "./Pages/Request/InBidding/InBidding";
+import Saved from "./Pages/Request/Saved/Saved";
 
 
 if (localStorage.limadi_token) {
@@ -38,6 +40,16 @@ function App(props) {
 
         <Route exact path='/' element={<ProtectedRoute/>}>
             <Route exact path='/' element={<Layout {...props}><Home/></Layout>}/>
+        </Route>
+
+        {/* ================= */}
+        {/* Request           */}
+        {/* ================= */}
+        <Route exact path='/request/saved' element={<ProtectedRoute/>}>
+            <Route exact path='/request/saved' element={<Layout {...props}><Saved/></Layout>}/>
+        </Route>
+        <Route exact path='/request/in-bidding' element={<ProtectedRoute/>}>
+            <Route exact path='/request/in-bidding' element={<Layout {...props}><InBidding/></Layout>}/>
         </Route>
         
         

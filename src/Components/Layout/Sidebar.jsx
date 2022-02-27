@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 // Icons
@@ -12,17 +12,27 @@ import { BiPlusCircle } from 'react-icons/bi';
 // Images & Icons
 import logo from "../../Images/logo_with_slogan.png"
 import Accordion from './Accordion';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Sidebar = () => {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+    const { active_route } = useContext(AuthContext);
     
+    // !======================================= Checking Sections ====================================
     // ! Check Active Route, Sections & Sub Sections
-    const active_route = "/home"
     let active_section = ""
     let active_sub_section = ""
     
     if(active_route.includes('home')) active_section = 'home'
+    if(active_route.includes('request')) active_section = 'request'
+    if(active_route.includes('create-request')) active_section = 'create_request'
+    
+    // Sub Sections
+    if(active_route.includes('request/saved')) active_section = 'saved_request'
+    if(active_route.includes('request/in_bidding')) active_section = 'in_bidding_request'
+    if(active_route.includes('request/awarded')) active_section = 'awarded_request'
+    // !===============================================================================================
     
     return (
         <aside className={`${isSidebarOpen ? 'w-64' : 'w-0'} sidebar overflow-hidden md:shadow transform -translate-x-full md:translate-x-0 transition-all duration-150 ease-in bg-white`}>

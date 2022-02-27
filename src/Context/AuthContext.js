@@ -15,10 +15,15 @@ const AuthContextProvider = (props) => {
         auth_loading: false,
         loading: true,
         user: null,
-        active_route: localStorage.getItem('limadi_active_route') ?? '/dashboard',
+        active_route: localStorage.getItem('limadi_active_route') ?? '/',
     }
 
     const [state, dispatch] = useReducer(authReducer, initialState)
+
+    const SetActiveRoute = (curr_route) => {
+      if(state.isAuth) localStorage.setItem('limadi_active_route', curr_route)
+      dispatch({ type: "SET_ACTIVE_ROUTE", payload: curr_route });
+    }
 
     const LoadUser = async () => {
         if(localStorage.limadi_token) {
@@ -102,6 +107,7 @@ const AuthContextProvider = (props) => {
           loading: state.loading,
           auth_loading: state.auth_loading,
           active_route: state.active_route,
+          SetActiveRoute,
           Login,
           Register,
           LoadUser,

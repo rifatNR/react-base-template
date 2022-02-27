@@ -1,5 +1,10 @@
 export const authReducer = (state, action) => {
     switch (action.type) {
+      case "SET_ACTIVE_ROUTE":
+        return {
+          ...state,
+          active_route: action.payload,
+        };
       case "USER_LOADING":
         return {
           ...state,

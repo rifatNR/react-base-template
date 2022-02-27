@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import { MdHomeFilled, MdOutlineGavel } from 'react-icons/md';
 import { FaAngleDoubleLeft, FaAngleDoubleRight, FaRegEdit, FaTruck, FaTruckMoving } from 'react-icons/fa';
 import { IoIosArrowForward } from 'react-icons/io';
-import { AiFillSave } from 'react-icons/ai';
+import { AiFillSave, AiOutlineHeart } from 'react-icons/ai';
 import { RiFileHistoryLine, RiMedalLine } from 'react-icons/ri';
 import { BiConfused, BiPlusCircle, BiWorld } from 'react-icons/bi';
 import { GiNinjaStar, GiPirateFlag } from 'react-icons/gi';
+import { GrLocation } from 'react-icons/gr';
+import { HiOutlineCog } from 'react-icons/hi';
 
 // Images & Icons
 import logo from "../../Images/logo_with_slogan.png"
@@ -25,9 +27,6 @@ const Sidebar = () => {
     let active_section = ""
     let active_sub_section = ""
     
-    if(active_route.includes('/')) active_section = 'home'
-    if(active_route.includes('create-request')) active_section = 'create_request'
-    
     // Sub Sections
     if(active_route.includes('request/saved')) active_sub_section = 'saved'
     if(active_route.includes('request/in-bidding')) active_sub_section = 'in_bidding'
@@ -35,10 +34,18 @@ const Sidebar = () => {
     if(active_route.includes('request/ongoing')) active_sub_section = 'ongoing'
     if(active_route.includes('request/completed')) active_sub_section = 'completed'
     if(active_route.includes('request/history')) active_sub_section = 'history'
-    if(['saved', 'in_bidding', 'awarded', 'ongoing', 'completed', 'history'].includes(active_sub_section)) active_section = 'request'
     
     if(active_route.includes('pirate')) active_sub_section = 'pirate'
     if(active_route.includes('ninja')) active_sub_section = 'ninja'
+    
+
+    // Sections
+    if(active_route.includes('/')) active_section = 'home'
+    if(active_route.includes('create-request')) active_section = 'create_request'
+    if(active_route.includes('favorite/companies')) active_section = 'favorite_companies'
+    if(active_route.includes('favorite/address')) active_section = 'favorite_address'
+    if(active_route.includes('settings')) active_section = 'settings'
+    if(['saved', 'in_bidding', 'awarded', 'ongoing', 'completed', 'history'].includes(active_sub_section)) active_section = 'request'
     if(['pirate', 'ninja'].includes(active_sub_section)) active_section = 'hello_world'
 
     // !===============================================================================================
@@ -94,7 +101,6 @@ const Sidebar = () => {
                 <Link to="/create-request" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'create_request' && 'bg-gray-100 text-limadi'}`}>
                     <BiPlusCircle className='text-xl mr-2'/> Create Request
                 </Link>
-                
 
                 {/* Random Accordion Example */}
                 <Accordion
@@ -110,6 +116,18 @@ const Sidebar = () => {
                         </Link>
                     </>}
                 />
+
+                <Link to="/favorite/companies" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'favorite_companies' && 'bg-gray-100 text-limadi'}`}>
+                    <AiOutlineHeart className='text-xl mr-2'/> Favorite Companies
+                </Link>
+
+                <Link to="/favorite/address" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'favorite_address' && 'bg-gray-100 text-limadi'}`}>
+                    <GrLocation className='text-xl mr-2'/> Favorite Address
+                </Link>
+
+                <Link to="/settings" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'settings' && 'bg-gray-100 text-limadi'}`}>
+                    <HiOutlineCog className='text-xl mr-2'/> Settings
+                </Link>
 
             </div>
         </aside>

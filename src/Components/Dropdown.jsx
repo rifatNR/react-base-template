@@ -2,10 +2,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Dropdown({width = 56, button, body}) {
   return (
     <Menu as="div" className="relative text-left h-10 flex items-center">

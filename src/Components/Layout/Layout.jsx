@@ -11,15 +11,13 @@ const Layout = (props) => {
   // }, [window.innerWidth])
 
   
-  const [width, setWidth] = useState(0)
+  const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth))
     console.log(width);
 
-    if(width <= 875)
-      setIsSidebarOpen(false)
-    else
-      setIsSidebarOpen(true)
+    if(width <= 875) setIsSidebarOpen(false)
+    else setIsSidebarOpen(true)
     
   }, [width])
   
@@ -29,7 +27,7 @@ const Layout = (props) => {
         <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
         <main className="main flex items-end flex-col flex-grow transition-all duration-150 ease-in w-full">
             <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
-            <div className={`w-full ${isSidebarOpen ? 'pl-64' : 'pl-20'} pt-20`}>
+            <div className={`w-full ${isSidebarOpen ? 'pl-64' : 'pl-20'} pt-[4.5rem]`}>
               <div className="container mx-auto">
                 {props.children}
               </div>

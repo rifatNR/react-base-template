@@ -55,9 +55,9 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
     return (
         // ! To Add auto hide add these 2 lines in bottom tag "-translate-x-full md:translate-x-0"
         <aside className={`${isSidebarOpen ? 'w-64' : 'w-20'} fixed z-50 h-full sidebar overflow-hidden md:shadow transform transition-all duration-150 ease-in bg-white`}>
-            <div className="sidebar-header flex items-center justify-center py-4">
+            <div className="sidebar-header flex items-center justify-center py-4 h-[4.5rem]">
                 <Link to="/" className="inline-flex flex-row items-center">
-                    <div className="h-10">
+                    <div className={`${isSidebarOpen ? 'h-10' : 'h-6 px-4'}`}>
                         <img src={logo} alt="" className='w-36'/>
                     </div>
                 </Link>

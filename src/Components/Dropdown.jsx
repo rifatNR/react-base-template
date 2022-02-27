@@ -8,8 +8,8 @@ function classNames(...classes) {
 
 export default function Dropdown({width = 56, button, body}) {
   return (
-    <Menu as="div" className="relative inline-block text-left h-10">
-        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-4 text-sm font-medium text-gray-700">
+    <Menu as="div" className="relative text-left h-10 flex items-center">
+        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-2 md:px-4 text-sm font-medium text-gray-700">
             {button}
         </Menu.Button>
 

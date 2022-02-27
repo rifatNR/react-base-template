@@ -10,7 +10,7 @@ const Header = ({isSidebarOpen, setIsSidebarOpen}) => {
   }
   
   return (
-    <header className={`header bg-white shadow fixed w-full z-40 transition-all ${isSidebarOpen ? 'pl-0 md:pl-64' : 'pl-20'}`}>
+    <header className={`header bg-white shadow fixed h-15 w-full z-40 transition-all ${isSidebarOpen ? 'pl-64' : 'pl-20'}`}>
         <div className="py-4 px-4">
           <div className="container mx-auto flex justify-between items-center">
             <Search search={search}/>

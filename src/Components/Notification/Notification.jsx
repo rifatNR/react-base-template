@@ -25,15 +25,15 @@ const Notification = () => {
     )
     
     return (
-        <div>
+        <>
             <Dropdown
                 width={96}
-                button={<div className="h-10 w-10 bg-gray-300 flex justify-center items-center rounded-full">
+                button={<div className="h-8 w-8 md:h-10 md:w-10 bg-gray-300 flex justify-center items-center rounded-full">
                     <MdNotifications className="text-2xl"/>
                 </div>}
                 body={notification_body}
             />
-        </div>
+        </>
     )
 }
 

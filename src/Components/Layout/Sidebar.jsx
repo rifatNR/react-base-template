@@ -8,18 +8,19 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { AiFillSave, AiOutlineHeart } from 'react-icons/ai';
 import { RiFileHistoryLine, RiMedalLine } from 'react-icons/ri';
 import { BiConfused, BiPlusCircle, BiWorld } from 'react-icons/bi';
-import { GiNinjaStar, GiPirateFlag } from 'react-icons/gi';
-import { GrLocation } from 'react-icons/gr';
+import { GiMonkey, GiNinjaStar, GiPirateFlag } from 'react-icons/gi';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { HiOutlineCog } from 'react-icons/hi';
 
 // Images & Icons
 import logo from "../../Images/logo_with_slogan.png"
 import Accordion from './Accordion';
 import { AuthContext } from '../../Context/AuthContext';
+import Section from './Section';
+import SubSection from './SubSection';
 
-const Sidebar = () => {
+const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true)
     const { active_route } = useContext(AuthContext);
     
     // !======================================= Checking Sections ====================================
@@ -35,23 +36,25 @@ const Sidebar = () => {
     if(active_route.includes('request/completed')) active_sub_section = 'completed'
     if(active_route.includes('request/history')) active_sub_section = 'history'
     
+    if(active_route.includes('monkey')) active_sub_section = 'monkey'
     if(active_route.includes('pirate')) active_sub_section = 'pirate'
     if(active_route.includes('ninja')) active_sub_section = 'ninja'
     
 
     // Sections
     if(active_route.includes('/')) active_section = 'home'
-    if(active_route.includes('create-request')) active_section = 'create_request'
+    if(active_route.includes('request/create')) active_section = 'create_request'
     if(active_route.includes('favorite/companies')) active_section = 'favorite_companies'
     if(active_route.includes('favorite/address')) active_section = 'favorite_address'
     if(active_route.includes('settings')) active_section = 'settings'
     if(['saved', 'in_bidding', 'awarded', 'ongoing', 'completed', 'history'].includes(active_sub_section)) active_section = 'request'
-    if(['pirate', 'ninja'].includes(active_sub_section)) active_section = 'hello_world'
+    if(['monkey', 'pirate', 'ninja'].includes(active_sub_section)) active_section = 'hello_world'
 
     // !===============================================================================================
     
     return (
-        <aside className={`${isSidebarOpen ? 'w-64' : 'w-0'} sidebar overflow-hidden md:shadow transform -translate-x-full md:translate-x-0 transition-all duration-150 ease-in bg-white`}>
+        // ! To Add auto hide add these 2 lines in bottom tag "-translate-x-full md:translate-x-0"
+        <aside className={`${isSidebarOpen ? 'w-64' : 'w-20'} fixed z-50 h-full sidebar overflow-hidden md:shadow transform transition-all duration-150 ease-in bg-white`}>
             <div className="sidebar-header flex items-center justify-center py-4">
                 <Link to="/" className="inline-flex flex-row items-center">
                     <div className="h-10">
@@ -62,72 +65,132 @@ const Sidebar = () => {
 
             <div>
                 <div className='flex justify-end mb-5'>
-                    <div onClick={() => setIsSidebarOpen(false)} className='bg-gray-300 p-1 inline cursor-pointer'>
-                        <FaAngleDoubleLeft className='text-gray-700'/>
+                    <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className='bg-gray-300 p-1 inline cursor-pointer'>
+                        <FaAngleDoubleLeft className={`text-gray-700 transition-all duration-500 ${isSidebarOpen ? '' : 'rotate-180'}`}/>
                     </div>
                 </div>
 
 
-                <Link to="/" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'home' && 'bg-gray-100 text-limadi'}`}>
-                    <MdHomeFilled className='text-xl mr-2'/> Home
-                </Link>
+                <Section
+                    isSidebarOpen={isSidebarOpen}
+                    url='/'
+                    icon={<MdHomeFilled/>}
+                    title={"Home"}
+                    is_active={active_section === 'home'}
+                />
 
                 <Accordion
+                    isSidebarOpen={isSidebarOpen}
                     isInitOpen={active_section === 'request'}
-                    icon={<FaRegEdit className='text-lg mr-2'/>}
+                    icon={<FaRegEdit/>}
                     title={"Request"}
                     body={<>
-                        <Link to="/request/saved" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'saved' && 'bg-gray-100 text-limadi'}`}>
-                            <AiFillSave className='text-lg mr-2'/> Saved
-                        </Link>
-                        <Link to="/request/in-bidding" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'in_bidding' && 'bg-gray-100 text-limadi'}`}>
-                            <MdOutlineGavel className='text-lg mr-2'/> In Bidding
-                        </Link>
-                        <Link to="/request/awarded" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'awarded' && 'bg-gray-100 text-limadi'}`}>
-                            <RiMedalLine className='text-lg mr-2'/> Awarded
-                        </Link>
-                        <Link to="/request/ongoing" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'ongoing' && 'bg-gray-100 text-limadi'}`}>
-                            <FaTruck className='text-lg mr-2'/> On Going
-                        </Link>
-                        <Link to="/request/completed" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'completed' && 'bg-gray-100 text-limadi'}`}>
-                            <FaTruckMoving className='text-lg mr-2'/> Completed
-                        </Link>
-                        <Link to="/request/history" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'history' && 'bg-gray-100 text-limadi'}`}>
-                            <RiFileHistoryLine className='text-lg mr-2'/> History
-                        </Link>
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/saved'
+                            icon={<AiFillSave/>}
+                            title={"Saved"}
+                            is_active={active_sub_section === 'saved'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/in-bidding'
+                            icon={<MdOutlineGavel/>}
+                            title={"In Bidding"}
+                            is_active={active_sub_section === 'in_bidding'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/awarded'
+                            icon={<RiMedalLine/>}
+                            title={"Awarded"}
+                            is_active={active_sub_section === 'awarded'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/ongoing'
+                            icon={<FaTruck/>}
+                            title={"On Going"}
+                            is_active={active_sub_section === 'ongoing'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/completed'
+                            icon={<FaTruckMoving/>}
+                            title={"Completed"}
+                            is_active={active_sub_section === 'completed'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/request/history'
+                            icon={<RiFileHistoryLine/>}
+                            title={"History"}
+                            is_active={active_sub_section === 'history'}
+                        />
                     </>}
                 />
                 
-                <Link to="/create-request" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'create_request' && 'bg-gray-100 text-limadi'}`}>
-                    <BiPlusCircle className='text-xl mr-2'/> Create Request
-                </Link>
+                <Section
+                    isSidebarOpen={isSidebarOpen}
+                    url='/request/create'
+                    icon={<BiPlusCircle/>}
+                    title={"Create Request"}
+                    is_active={active_section === 'create_request'}
+                />
 
                 {/* Random Accordion Example */}
+                {/* I've used both type of section type here */}
                 <Accordion
+                    isSidebarOpen={isSidebarOpen}
                     isInitOpen={active_section === 'hello_world'}
-                    icon={<BiWorld className='text-lg mr-2'/>}
+                    icon={<BiWorld/>}
                     title={"Hello World"}
                     body={<>
-                        <Link to="/pirate" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'pirate' && 'bg-gray-100 text-limadi'}`}>
-                            <GiPirateFlag className='text-lg mr-2'/> Pirate
-                        </Link>
-                        <Link to="/ninja" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-1 text-gray-800 cursor-pointer hover:text-limadi ${active_sub_section === 'ninja' && 'bg-gray-100 text-limadi'}`}>
-                            <GiNinjaStar className='text-lg mr-2'/> Ninja
-                        </Link>
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/monkey'
+                            icon={<GiMonkey/>}
+                            title={"Monkey D. Luffy"}
+                            is_active={active_sub_section === 'monkey'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/pirate'
+                            icon={<GiPirateFlag/>}
+                            title={"Pirate"}
+                            is_active={active_sub_section === 'pirate'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/ninja'
+                            icon={<GiNinjaStar/>}
+                            title={"Ninja"}
+                            is_active={active_sub_section === 'ninja'}
+                        />
                     </>}
                 />
 
-                <Link to="/favorite/companies" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'favorite_companies' && 'bg-gray-100 text-limadi'}`}>
-                    <AiOutlineHeart className='text-xl mr-2'/> Favorite Companies
-                </Link>
-
-                <Link to="/favorite/address" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'favorite_address' && 'bg-gray-100 text-limadi'}`}>
-                    <GrLocation className='text-xl mr-2'/> Favorite Address
-                </Link>
-
-                <Link to="/settings" className={`flex justify-start items-center text-sm font-semibold px-7 py-2 mb-4 text-gray-800 cursor-pointer hover:text-limadi ${active_section === 'settings' && 'bg-gray-100 text-limadi'}`}>
-                    <HiOutlineCog className='text-xl mr-2'/> Settings
-                </Link>
+                <Section
+                    isSidebarOpen={isSidebarOpen}
+                    url='/favorite/companies'
+                    icon={<AiOutlineHeart/>}
+                    title={"Favorite Companies"}
+                    is_active={active_section === 'favorite_companies'}
+                />
+                <Section
+                    isSidebarOpen={isSidebarOpen}
+                    url='/favorite/address'
+                    icon={<HiOutlineLocationMarker/>}
+                    title={"Favorite Address"}
+                    is_active={active_section === 'favorite_address'}
+                />
+                <Section
+                    isSidebarOpen={isSidebarOpen}
+                    url='/settings'
+                    icon={<HiOutlineCog/>}
+                    title={"Settings"}
+                    is_active={active_section === 'settings'}
+                />
 
             </div>
         </aside>

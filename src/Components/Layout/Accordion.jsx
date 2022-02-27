@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react'
 
 import { IoIosArrowForward } from 'react-icons/io';
 
-const Accordion = ({isInitOpen = false, icon = '', title = '', body = ''}) => {
+const Accordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', body = ''}) => {
     // ! isInitOpen = "Decides whether accordion should be opened when rendered"
 
     const [isOpen, setIsOpen] = useState(isInitOpen)
     
     return (
-        <div className={`text-md px-7 py-2 mb-4 text-gray-800 ${isOpen && 'text-limadi'}`}>
+        <div className={`text-md px-7 py-2 mb-4 text-gray-800 ${isOpen && 'bg-gray-100'}`}>
             <div onClick={(e) => {setIsOpen(!isOpen)}} className='flex justify-between items-center w-full cursor-pointer'>
                 <div className='flex items-center text-sm font-semibold'>
-                    {icon} {title}
+                    <div className={`flex justify-start items-center ${isSidebarOpen ? 'text-xl mr-2' : 'text-2xl'}`}>
+                        {icon}
+                    </div>
+                    {isSidebarOpen && title}
                 </div>
-                <IoIosArrowForward className={`transition-transform ${isOpen && 'rotate-90'}`} />
+                {isSidebarOpen && <IoIosArrowForward className={`transition-transform ${isOpen && 'rotate-90'}`} />}
             </div>
             <div className={`overflow-hidden transition-[max-height] ${!isOpen ? 'max-h-0' : 'max-h-96'}`}>
                 <div className='pt-3'></div>

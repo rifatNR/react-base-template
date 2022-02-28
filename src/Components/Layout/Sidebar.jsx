@@ -8,7 +8,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { AiFillSave, AiOutlineHeart } from 'react-icons/ai';
 import { RiFileHistoryLine, RiMedalLine } from 'react-icons/ri';
 import { BiConfused, BiPlusCircle, BiWorld } from 'react-icons/bi';
-import { GiMonkey, GiNinjaStar, GiPirateFlag } from 'react-icons/gi';
+import { GiMonkey, GiNinjaStar, GiPerspectiveDiceSixFacesRandom, GiPirateFlag } from 'react-icons/gi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { HiOutlineCog } from 'react-icons/hi';
 
@@ -39,6 +39,7 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
     if(active_route.includes('monkey')) active_sub_section = 'monkey'
     if(active_route.includes('pirate')) active_sub_section = 'pirate'
     if(active_route.includes('ninja')) active_sub_section = 'ninja'
+    if(active_route.includes('random-page')) active_sub_section = 'random_page'
     
 
     // Sections
@@ -48,7 +49,7 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
     if(active_route.includes('favorite/address')) active_section = 'favorite_address'
     if(active_route.includes('settings')) active_section = 'settings'
     if(['saved', 'in_bidding', 'awarded', 'ongoing', 'completed', 'history'].includes(active_sub_section)) active_section = 'request'
-    if(['monkey', 'pirate', 'ninja'].includes(active_sub_section)) active_section = 'hello_world'
+    if(['monkey', 'pirate', 'ninja', 'random_page'].includes(active_sub_section)) active_section = 'hello_world'
 
     // !===============================================================================================
     
@@ -166,6 +167,13 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
                             icon={<GiNinjaStar/>}
                             title={"Ninja"}
                             is_active={active_sub_section === 'ninja'}
+                        />
+                        <SubSection
+                            isSidebarOpen={isSidebarOpen}
+                            url='/random-page'
+                            icon={<GiPerspectiveDiceSixFacesRandom/>}
+                            title={"Random Page"}
+                            is_active={active_sub_section === 'c'}
                         />
                     </>}
                 />

@@ -11,11 +11,11 @@ const Header = ({isSidebarOpen, setIsSidebarOpen}) => {
   
   return (
     <header className={`header bg-white shadow fixed h-15 w-full z-20 transition-all ${isSidebarOpen ? 'pl-64' : 'pl-20'}`}>
-        <div className="py-4 px-4">
-          <div className="container mx-auto flex justify-between items-center">
+        <div className="py-4">
+          <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-10 xl:mx-12 flex justify-between items-center">
             <Search search={search}/>
 
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center space-x-2">
               <Notification/>
               <ProfileDropdown/>
             </div>

@@ -13,6 +13,7 @@ import LayoutTest from "./Pages/Test/LayoutTest";
 import LayoutTest02 from "./Pages/Test/LayoutTest02";
 import InBidding from "./Pages/Request/InBidding/InBidding";
 import Saved from "./Pages/Request/Saved/Saved";
+import CreateRequest from "./Pages/CreateRequest/CreateRequest";
 
 
 if (localStorage.limadi_token) {
@@ -51,6 +52,9 @@ function App(props) {
         {/* ================= */}
         {/* Request           */}
         {/* ================= */}
+        <Route exact path='/request/create' element={<ProtectedRoute/>}>
+            <Route exact path='/request/create' element={<Layout {...props}><CreateRequest/></Layout>}/>
+        </Route>
         <Route exact path='/request/saved' element={<ProtectedRoute/>}>
             <Route exact path='/request/saved' element={<Layout {...props}><Saved/></Layout>}/>
         </Route>
@@ -61,7 +65,7 @@ function App(props) {
         
         {/********************** Testing Only ***********************/}
         <Route exact path='/random-page' element={<ProtectedRoute/>}>
-            <Route exact path='/random-page' element={<RandomPage/>}/>
+            <Route exact path='/random-page' element={<Layout {...props}><RandomPage/></Layout>}/>
         </Route>
         <Route path="/layout-test-1" element={<LayoutTest/>} />
         <Route path="/layout-test-2" element={<LayoutTest02/>} />

@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react'
 export default function Dropdown({width = 56, button, body}) {
   return (
     <Menu as="div" className="relative text-left h-10 inline-block">
-        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-2 md:px-4 text-sm font-medium text-gray-700">
+        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm text-sm font-medium text-gray-700">
             {button}
         </Menu.Button>
 

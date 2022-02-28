@@ -9,7 +9,7 @@ function classNames(...classes) {
 export default function ProfileDropdown() {
   return (
     <Menu as="div" className="relative text-left h-10 inline-block">
-        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-2 md:px-4 text-sm font-medium text-gray-700">
+        <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm text-sm font-medium text-gray-700">
             <img className='h-8 w-8 md:h-10 md:w-10 bg-gray-200 border rounded-full' src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="" />
         </Menu.Button>
 

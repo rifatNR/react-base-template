@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsFillLayersFill } from 'react-icons/bs'
 import Dropdown from '../../Components/Dropdown'
 import Image from '../../Components/Image/Image'
+import { RequestContext } from '../../Context/RequestContext'
 
 const Summery = () => {
+
+  const {is_submit_enabled} = useContext(RequestContext);
+  
   return (
-    <div className="bg-white p-4 shadow rounded-xl">
+    <div className="bg-white p-4 shadow rounded-xl sticky">
       <div className="relative flex justify-center items-center mb-5">
         <div className="text-xl font-bold">Summery</div>
         <div className="absolute right-0">
@@ -55,14 +59,13 @@ const Summery = () => {
           <div className="flex justify-between mb-5">
             <div className="text-sm text-gray-500">Attachment</div>
             <div className="rounded-lg overflow-hidden w-36">
-              {/* <img className="" src="https://picsum.photos/300/200?random=1" alt="" onError={(e)=>{e.target.onerror = null; e.target.src=NoImage}}/> */}
-              <Image src='https://picsum.photos/300/200?random=' className=""/>
+              <Image src='https://picsum.photos/1200/800?random=' className="cursor-pointer"/>
             </div>
           </div>
       </div>
 
       <div className="mt-10 mb-5 w-full text-center">
-        <button className="px-16 py-3 rounded-md bg-limadi text-white font-bold">Submit</button>
+        <button className={`px-16 py-3 rounded-md ${is_submit_enabled ? 'bg-limadi' : 'bg-gray-400 cursor-not-allowed'} text-white font-bold`}>Submit</button>
       </div>
       
     </div>

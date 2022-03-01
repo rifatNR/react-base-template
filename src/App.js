@@ -32,7 +32,7 @@ function App(props) {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App font-poppins">
       <Routes>
 
         {/* ========================== 404 Error =========================== */}

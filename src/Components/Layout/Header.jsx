@@ -15,7 +15,7 @@ const Header = ({isSidebarOpen, setIsSidebarOpen}) => {
           <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-10 xl:mx-12 flex justify-between items-center">
             <Search search={search}/>
 
-            <div className="flex justify-between items-center space-x-2">
+            <div className="flex justify-between items-center space-x-10">
               <Notification/>
               <ProfileDropdown/>
             </div>

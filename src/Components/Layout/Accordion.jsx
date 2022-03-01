@@ -10,7 +10,7 @@ const Accordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', bo
     return (
         <div className={`text-md px-7 py-2 mb-4 text-gray-800 ${isOpen && 'bg-gray-100'}`}>
             <div onClick={(e) => {setIsOpen(!isOpen)}} className='flex justify-between items-center w-full cursor-pointer'>
-                <div className='flex items-center text-sm font-semibold'>
+                <div className='flex items-center text-sm font-medium'>
                     <div className={`flex justify-start items-center ${isSidebarOpen ? 'text-xl mr-2' : 'text-2xl'}`}>
                         {icon}
                     </div>

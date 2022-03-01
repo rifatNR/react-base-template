@@ -13,7 +13,7 @@ import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { HiOutlineCog } from 'react-icons/hi';
 
 // Images & Icons
-import logo from "../../Images/logo_with_slogan.png"
+import {LOGO} from "../../Utility/Sources"
 import Accordion from './Accordion';
 import { AuthContext } from '../../Context/AuthContext';
 import Section from './Section';
@@ -59,7 +59,7 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
             <div className="sidebar-header flex items-center justify-center py-4 h-[4.5rem]">
                 <Link to="/" className="inline-flex flex-row items-center">
                     <div className={`${isSidebarOpen ? 'h-10' : 'h-6 px-4'}`}>
-                        <img src={logo} alt="" className='w-36'/>
+                        <img src={LOGO} alt="" className='w-36'/>
                     </div>
                 </Link>
             </div>

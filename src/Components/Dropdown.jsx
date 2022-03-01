@@ -18,7 +18,7 @@ export default function Dropdown({width = 56, button, body}) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
         >
-            <Menu.Items className={`origin-top-right absolute right-0 mt-2 w-${width} rounded-md shadow-lg bg-white focus:outline-none z-40`}>
+            <Menu.Items className={`origin-top-right absolute right-0 mt-2 w-${width} rounded-md shadow-c1 bg-white focus:outline-none z-40`}>
                 <div className="py-1">
                     {body}
                 </div>

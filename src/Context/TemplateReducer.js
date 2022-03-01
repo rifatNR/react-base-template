@@ -3,7 +3,7 @@ export const templateReducer = (state, action) => {
       case "SET_DATA":
         return {
           ...state,
-          data: action.data,
+          data: action.payload,
         };
       default:
         return state;

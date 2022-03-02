@@ -14,7 +14,7 @@ import { HiOutlineCog } from 'react-icons/hi';
 
 // Images & Icons
 import {LOGO} from "../../Utility/Sources"
-import Accordion from './Accordion';
+import SidebarAccordion from './SidebarAccordion';
 import { AuthContext } from '../../Context/AuthContext';
 import Section from './Section';
 import SubSection from './SubSection';
@@ -80,7 +80,7 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
                     is_active={active_section === 'home'}
                 />
 
-                <Accordion
+                <SidebarAccordion
                     isSidebarOpen={isSidebarOpen}
                     isInitOpen={active_section === 'request'}
                     icon={<FaRegEdit/>}
@@ -139,9 +139,9 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
                     is_active={active_section === 'create_request'}
                 />
 
-                {/* Random Accordion Example */}
+                {/* Random SidebarAccordion Example */}
                 {/* I've used both type of section type here */}
-                <Accordion
+                <SidebarAccordion
                     isSidebarOpen={isSidebarOpen}
                     isInitOpen={active_section === 'hello_world'}
                     icon={<BiWorld/>}

@@ -14,6 +14,8 @@ import LayoutTest02 from "./Pages/Test/LayoutTest02";
 import InBidding from "./Pages/Request/InBidding/InBidding";
 import Saved from "./Pages/Request/Saved/Saved";
 import CreateRequest from "./Pages/CreateRequest/CreateRequest";
+import DependentAccordionExample from "./Pages/ExamplePages/DependentAccordionExample";
+import IndependentAccordionExample from "./Pages/ExamplePages/IndependentAccordionExample";
 
 
 if (localStorage.limadi_token) {
@@ -66,6 +68,12 @@ function App(props) {
         {/********************** Testing Only ***********************/}
         <Route exact path='/random-page' element={<ProtectedRoute/>}>
             <Route exact path='/random-page' element={<Layout {...props}><RandomPage/></Layout>}/>
+        </Route>
+        <Route exact path='/pirate' element={<ProtectedRoute/>}>
+            <Route exact path='/pirate' element={<Layout {...props}><DependentAccordionExample/></Layout>}/>
+        </Route>
+        <Route exact path='/ninja' element={<ProtectedRoute/>}>
+            <Route exact path='/ninja' element={<Layout {...props}><IndependentAccordionExample/></Layout>}/>
         </Route>
         <Route path="/layout-test-1" element={<LayoutTest/>} />
         <Route path="/layout-test-2" element={<LayoutTest02/>} />

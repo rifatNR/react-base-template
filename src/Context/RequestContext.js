@@ -13,7 +13,7 @@ const RequestContextProvider = (props) => {
         // ! Request related core Data
         id: null,
         type: 'simple',
-        status: 'init',
+        status: 'companies',
         action: 'save',
 
         // ! Request Form related Data
@@ -37,6 +37,10 @@ const RequestContextProvider = (props) => {
         const status = type === 'simple' ? 'init' : 'pickup1'
         dispatch({ type: "CHANGE_STATUS", payload: status });
         // TODO: Clear Form
+    };
+    const ChangeValue = async (name, value) => {
+        console.log(`${name}: ${value}`);
+        dispatch({ type: "CHANGE_VALUE", payload: {name, value} });
     };
     
     const LoadRequest = async (formData) => {
@@ -79,6 +83,7 @@ const RequestContextProvider = (props) => {
 
             // ! Functions
             ChangeType,
+            ChangeValue,
             LoadRequest,
         }}
       >

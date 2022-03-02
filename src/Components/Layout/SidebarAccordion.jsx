@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { IoIosArrowForward } from 'react-icons/io';
 
-const Accordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', body = ''}) => {
-    // ! isInitOpen = "Decides whether accordion should be opened when rendered"
+const SidebarAccordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', body = ''}) => {
+    // ! isInitOpen = "Decides whether SidebarAccordion should be opened initially"
 
     const [isOpen, setIsOpen] = useState(isInitOpen)
     
@@ -18,7 +18,7 @@ const Accordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', bo
                 </div>
                 {isSidebarOpen && <IoIosArrowForward className={`transition-transform ${isOpen && 'rotate-90'}`} />}
             </div>
-            <div className={`overflow-hidden transition-[max-height] ${!isOpen ? 'max-h-0' : 'max-h-96'}`}>
+            <div className={`overflow-hidden transition-[max-height] duration-300 ${!isOpen ? 'max-h-0' : 'max-h-96'}`}>
                 <div className='pt-3'></div>
                 {body}
             </div>
@@ -26,4 +26,4 @@ const Accordion = ({isSidebarOpen, isInitOpen = false, icon = '', title = '', bo
     )
 }
 
-export default Accordion
+export default SidebarAccordion

@@ -1,20 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { NoImage } from '../../Utility/Sources';
 
-const ImageModal = (props) => {
+const ImageModal = ({img, show_modal, setShowModal}) => {
     
     const modalOnClose = () => {
         console.log("Modal closed.");
+        setShowModal(false)
     }
-
-    useEffect(() => {
-        
-    }, [props.event])
     
     return (
         <div>
-            <Transition appear show={props.show_modal} as={Fragment}>
+            <Transition appear show={show_modal} as={Fragment}>
                 <Dialog as="div" className="fixed inset-0 z-50 overflow-y-auto" onClose={modalOnClose}>
                     <div className="min-h-screen px-4 text-center backdrop-filter bg-gray-900 bg-opacity-30 backdrop-blur-sm">
                     <Transition.Child as={Fragment} enter="ease-out duration-100" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
@@ -27,12 +24,12 @@ const ImageModal = (props) => {
                         <div className="inline-block w-full max-w-6xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                             <div className="mt-2">
 
-                                <img src={props.img} alt="" className='w-full rounded-2xl' onError={(e)=>{e.target.onerror = null; e.target.src=NoImage}}/>
+                                <img src={img} alt="" className='w-full rounded-2xl' onError={(e)=>{e.target.onerror = null; e.target.src=NoImage}}/>
                                 
                             </div>
             
                             <div className="mt-4 w-full flex justify-end">
-                                <button type="button" onClick={() => props.setShowModal(false)} className="mr-4 inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none">
+                                <button type="button" onClick={() => setShowModal(false)} className="mr-4 inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none">
                                 Close
                                 </button>
                             </div>

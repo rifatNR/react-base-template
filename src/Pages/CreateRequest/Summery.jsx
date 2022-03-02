@@ -5,6 +5,7 @@ import Image from '../../Components/Image/Image'
 import { RequestContext } from '../../Context/RequestContext'
 
 const Summery = () => {
+  const {title, transport_type, pickup_date, pickup_start_time, delivery_start_time, pickup_address, delivery_address, pickup_comment} = useContext(RequestContext);
 
   const {is_submit_enabled} = useContext(RequestContext);
   
@@ -30,31 +31,39 @@ const Summery = () => {
       <div className="bg-gray-100 p-4 rounded-xl">
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Title</div>
-            <button className="text-sm text-right">Home Moving BD to DK</button>
-          </div>
-          <div className="flex justify-between items-center mb-5">
-            <div className="text-sm text-gray-500">Sender Name</div>
-            <button className="text-sm text-right">Jesse Pinkman</button>
+            <button className="text-sm text-right">{title ? title : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Transportation Type</div>
-            <button className="text-sm text-right">Home Moving</button>
+            <button className="text-sm text-right">{transport_type ? transport_type : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Pick Up Date</div>
-            <button className="text-sm text-right">10.Feb.2022</button>
+            <button className="text-sm text-right">{pickup_date ? "TODO:" : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Pick Up Time</div>
-            <button className="text-sm text-right">8:00(Avg.- 2 hr)</button>
+            <button className="text-sm text-right">{pickup_start_time ? pickup_start_time : <span className="text-gray-400">N/A</span>}</button>
+          </div>
+          <div className="flex justify-between items-center mb-5">
+            <div className="text-sm text-gray-500">Delivery Time</div>
+            <button className="text-sm text-right">{delivery_start_time ? delivery_start_time : <span className="text-gray-400">N/A</span>}</button>
+          </div>
+          <div className="flex justify-between items-center mb-5">
+            <div className="text-sm text-gray-500">Pick Up Time</div>
+            <button className="text-sm text-right">{pickup_start_time ? pickup_start_time : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Pick Up Address</div>
-            <button className="text-sm text-right">20/4, Pallabi, Mirpur, Dhaka-1216</button>
+            <button className="text-sm text-right">{pickup_address ? pickup_address : <span className="text-gray-400">N/A</span>}</button>
+          </div>
+          <div className="flex justify-between items-center mb-5">
+            <div className="text-sm text-gray-500">Delivery Address</div>
+            <button className="text-sm text-right">{delivery_address ? delivery_address : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between items-center mb-5">
             <div className="text-sm text-gray-500">Comment</div>
-            <button className="text-sm w-[60%] text-right">Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</button>
+            <button className="text-sm w-[60%] text-right">{pickup_comment ? pickup_comment : <span className="text-gray-400">N/A</span>}</button>
           </div>
           <div className="flex justify-between mb-5">
             <div className="text-sm text-gray-500">Attachment</div>

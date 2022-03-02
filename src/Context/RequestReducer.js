@@ -5,6 +5,11 @@ export const requestReducer = (state, action) => {
           ...state,
           type: action.payload,
         };
+      case "CHANGE_VALUE":
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value
+        };
       case "CHANGE_STATUS":
         return {
           ...state,

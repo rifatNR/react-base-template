@@ -6,7 +6,7 @@ const IndependentAccordionExample = () => {
         <div className="bg-white p-2 md:p-4 shadow rounded-xl max-w-2xl mx-auto">
 
             <div>
-                <div className="text-xl font-bold py-2 text-gray-700 text-center">Independent Accordion</div>
+                <div className="text-xl font-bold py-2 text-gray-700 text-center">Independent Accordion Example</div>
                 <Accordion
                     header={<div className="text-lg font-semibold py-2 text-gray-700">One Piece</div>}
                     body={

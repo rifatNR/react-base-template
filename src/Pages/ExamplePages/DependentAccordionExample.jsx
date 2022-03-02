@@ -7,7 +7,7 @@ const DependentAccordionExample = () => {
         <div className="bg-white p-2 md:p-4 shadow rounded-xl max-w-2xl mx-auto">
 
             <div>
-                <div className="text-xl font-bold py-2 text-gray-700 text-center">Dependent Accordion</div>
+                <div className="text-xl font-bold py-2 text-gray-700 text-center">Dependent Accordion Example</div>
                 <Accordion
                     accordion_type='dependent'
                     isInitOpen={toggled_accordion === 'one_piece' ? true : false}
